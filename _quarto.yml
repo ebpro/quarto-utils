@@ -1,0 +1,59 @@
+project:
+  execute-dir: project
+  output-dir: _output
+  preview:    
+    host: 0.0.0.0
+    port: 4200
+    browser: false
+  pre-render: ./quarto-utils/_utils/pre-render.sh 
+
+language: 
+  title-block-author-single: "Auteur"
+
+execute:
+  freeze: auto  # re-render only when source changes
+  cache: true
+  error: true
+
+lang: fr
+author:
+    - name: "Emmanuel BRUNO"
+      email: "emmanuel.bruno@univ-tln.fr"
+      url: "https://bruno.univ-tln.fr"
+institute: 
+    - Université de Toulon
+    - LIS UMR CNRS 7020
+affiliations:
+    - name: Université de Toulon
+    - name: LIS UMR CNRS 7020
+date: last-modified
+date-format: iso
+license: "CC BY-NC"
+
+#bibliography: references.bib
+#suppress-bibliography: false
+# citeproc: true
+
+profile:
+  default: notes
+#  default: slides
+  group: 
+    - [notes, slides]
+
+resources:
+  - quarto-utils/_assets
+
+metadata-files:
+  - quarto-utils/_website.yml
+
+# format-links: false  
+
+filters:
+   - quarto
+   - include-code-files
+   - line-highlight
+   - lua-env
+   - add-code-files
+   - code-fullscreen
+   - roughnotation
+   - code-visibility

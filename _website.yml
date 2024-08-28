@@ -1,0 +1,21 @@
+website:
+  title: "Emmanuel BRUNO"
+  open-graph: true
+  page-navigation: true
+  bread-crumbs: true
+  navbar:
+    background: primary
+    search: true
+    left:
+      - text: "Home"
+        href: https://bruno.univ-tln.fr/notebooks/
+      - text: "I111"
+        href: https://bruno.univ-tln.fr/notebooks/I111.html
+      - text: "I211"
+        href: https://bruno.univ-tln.fr/notebooks/I211.html
+      - text: "PO43"
+        href: https://bruno.univ-tln.fr/notebooks/PO43.html
+      - text: "PM44"
+        href: https://bruno.univ-tln.fr/notebooks/PM44.html
+      - text: "I311"
+        href: https://bruno.univ-tln.fr/notebooks/I311.html

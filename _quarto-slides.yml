@@ -1,0 +1,49 @@
+project:
+  output-dir: _output/_slides
+  render:
+    - "*_L_*.ipynb"  
+  post-render: quarto-utils/_utils/post-render.sh
+
+format:
+  revealjs:
+    # chalkboard: true
+    footer: E. Bruno
+    slide-level: 3
+    navigation-mode: vertical
+    slide-number: c/t
+    smaller: true
+    embed-resources: true
+    # theme: [league, custom.scss]
+    # theme: [dark, quarto-utils/custom.scss]
+    theme: [white, quarto-utils/custom.scss]
+    # highlight-style: pygments
+    code-overflow: wrap
+    multiplex: true
+    transition: slide
+
+  beamer: 
+    navigation: horizontal
+    aspectratio: 169
+    classoption: ['notheorems']
+    theme: Frankfurt
+    keep-tex: true
+    papersize: a4
+    mainfont: LiberationSerif
+    monofont: LiberationMono
+    include-in-header: 
+      text: |
+          \usepackage{fvextra}
+          \DefineVerbatimEnvironment{Highlighting}{Verbatim}{breaklines,commandchars=\\\{\}}         
+          \setbeamertemplate{navigation symbols}{}
+          \setbeamertemplate{footline}[page number]
+    include-before-body:
+      text: |
+        \RecustomVerbatimEnvironment{verbatim}{Verbatim}{
+          showspaces = false,
+          showtabs = false,
+          breaksymbolleft={},
+          breaklines
+        }  
+        
+revealjs-plugins:
+  - verticator

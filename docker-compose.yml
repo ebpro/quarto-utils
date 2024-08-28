@@ -1,0 +1,94 @@
+services:
+  docker:
+    image: docker:27-dind
+    privileged: true
+    environment:
+      - DOCKER_TLS_CERTDIR=/certs 
+    expose:
+      - 2375
+      - 2376
+#    ports:
+#      - 12375:2375
+    volumes:
+      - certs-ca:/certs/ca
+      - certs-client:/certs/client
+    networks:
+      - notebooknet
+
+  notebook:
+        user: root
+        environment:
+            - CHOWN_HOME=yes
+            - NB_UID=501
+            - DOCKER_HOST=tcp://docker:2376
+            - DOCKER_CERT_PATH=/certs/client
+            - DOCKER_TLS_CERTDIR=/certs
+            - DOCKER_TLS_VERIFY=1
+            - DB_USERNAME=${DB_USERNAME:-dba}
+            - DB_PASSWORD=${DB_PASSWORD:-secretsecret}
+            - DB_URL=${DB_URL:-jdbc:postgresql://db/notebook-db}
+        volumes:
+            - shared-data:/shared-data
+            - ${PWD}:/home/jovyan/work/local
+            - ${HOME}/JUPYTER_WORK:/home/jovyan/work/
+            - certs-client:/certs/client:ro
+        ports:
+            - 8888
+            # - 4200:4200
+        image: ${IMAGE_REPO}/${IMAGE_NAME}:${IMAGE_TAG}
+        depends_on:
+            - docker
+        command: start-notebook.sh --ServerApp.root_dir=/home/jovyan/work/ --LabApp.default_url="lab/tree/local/"
+        networks:
+          - notebooknet
+
+  notebook-builder:
+        user: root
+        environment:
+            - CHOWN_HOME=yes
+            - NB_UID=501
+            - DOCKER_HOST=tcp://docker:2376
+            - DOCKER_CERT_PATH=/certs/client
+            - DOCKER_TLS_CERTDIR=/certs
+            - DOCKER_TLS_VERIFY=1
+            - DB_USERNAME=${DB_USERNAME:-dba}
+            - DB_PASSWORD=${DB_PASSWORD:-secretsecret}
+            - DB_URL=${DB_URL:-jdbc:postgresql://db/notebook-db}
+        volumes:
+            - shared-data:/shared-data
+            - ${PWD}:/home/jovyan/work/local
+            - JUPYTER_WORK:/home/jovyan/work/
+            - certs-client:/certs/client:ro
+        image: ${IMAGE_REPO}/${IMAGE_NAME}:${IMAGE_TAG}
+        depends_on:
+            - docker
+        working_dir: /home/jovyan/work/local/
+        command: quarto-utils/_utils/build.sh $ARGS
+        networks:
+          - notebooknet
+
+  db:
+    image: postgres:16-alpine
+    # image: postgis/postgis:16-3.4
+    restart: always
+    environment:
+      - POSTGRES_USER=${DB_USERNAME:-dba}
+      - POSTGRES_PASSWORD=${DB_PASSWORD:-secretsecret}
+      - POSTGRES_DB=${DB_NAME:-notebook-db}
+    networks:
+      - notebooknet
+    volumes:
+      - shared-data:/shared-data
+      - dbhost-data:/var/lib/postgresql
+
+volumes:
+  certs-ca:
+  certs-client:
+  workdir:
+  dbhost-data:
+  JUPYTER_WORK:
+  shared-data:
+
+networks:
+  notebooknet:
+
