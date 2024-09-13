@@ -6,4 +6,5 @@
 #	unlink $l
 #done
 
-# find . -name *speaker.html -exec mv {} _output/_slides/{} \;
+find . -name "*.slides-speaker.html" -not -path "./_output/*" -exec mv {} _output/{} \;
+

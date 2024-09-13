@@ -1,10 +1,11 @@
 project:
-  output-dir: _output/_slides
+#  output-dir: _output/_slides
   render:
     - "*_L_*.ipynb"  
-  post-render: quarto-utils/_utils/post-render.sh
+post-render: quarto-utils/_utils/post-render.sh
 
 format:
+
   revealjs:
     # chalkboard: true
     footer: E. Bruno
@@ -15,18 +16,22 @@ format:
     embed-resources: true
     # theme: [league, custom.scss]
     # theme: [dark, quarto-utils/custom.scss]
-    theme: [white, quarto-utils/custom.scss]
+    #theme: [white, quarto-utils/custom.scss]
+    theme: white
+    #theme: moon
     # highlight-style: pygments
     code-overflow: wrap
     multiplex: true
     transition: slide
+    output-ext: slides.html
 
   beamer: 
+    output-ext: slides.pdf
     navigation: horizontal
     aspectratio: 169
     classoption: ['notheorems']
     theme: Frankfurt
-    keep-tex: true
+    # keep-tex: true
     papersize: a4
     mainfont: LiberationSerif
     monofont: LiberationMono

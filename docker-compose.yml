@@ -7,8 +7,6 @@ services:
     expose:
       - 2375
       - 2376
-#    ports:
-#      - 12375:2375
     volumes:
       - certs-ca:/certs/ca
       - certs-client:/certs/client
@@ -33,8 +31,8 @@ services:
             - ${HOME}/JUPYTER_WORK:/home/jovyan/work/
             - certs-client:/certs/client:ro
         ports:
-            - 8888
-            # - 4200:4200
+            - 8888 # JupyterLab port
+            - 4200 # quarto render port
         image: ${IMAGE_REPO}/${IMAGE_NAME}:${IMAGE_TAG}
         depends_on:
             - docker

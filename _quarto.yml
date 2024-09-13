@@ -10,10 +10,10 @@ project:
 language: 
   title-block-author-single: "Auteur"
 
-execute:
-  freeze: auto  # re-render only when source changes
-  cache: true
-  error: true
+#execute:
+#  freeze: auto  # re-render only when source changes
+#  cache: true
+#  error: true
 
 lang: fr
 author:
@@ -36,7 +36,6 @@ license: "CC BY-NC"
 
 profile:
   default: notes
-#  default: slides
   group: 
     - [notes, slides]
 
@@ -45,8 +44,7 @@ resources:
 
 metadata-files:
   - quarto-utils/_website.yml
-
-# format-links: false  
+#  - quarto-utils/_format.yml
 
 filters:
    - quarto

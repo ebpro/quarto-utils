@@ -4,7 +4,9 @@ project:
     - "*.qmd"
     - "*.ipynb"
     - "!*_L-slides_*.ipynb"
-    
+
+notebook-links: false
+
 theme:
     light: flatly
     dark: darkly
@@ -38,7 +40,34 @@ format:
 
   epub: default
 
+  #  typst:
+  #   number-sections: true
+  #  section-numbering: 1.1.a
+  #    papersize: a4
+
   pdf:
-    papersize: a4
-
-
+      number-sections: true
+      mainfont: LiberationSerif
+      monofont: LiberationMono
+      papersize: A4
+      documentclass: scrartcl
+      shift-heading-level-by: -1
+      link-citations: true
+      linkcolor: blue
+      include-in-header:
+        text: |
+            \usepackage{fvextra}
+            \DefineVerbatimEnvironment{Highlighting}{Verbatim}{breaklines,commandchars=\\\{\}}
+            \DefineVerbatimEnvironment{OutputCode}{Verbatim}{breaklines,commandchars=\\\{\}}
+            \usepackage{fancyhdr}
+            \pagestyle{fancy}
+            \fancyhf{}
+            \fancyfoot[C]{\thepage}
+      include-before-body:
+        text: |
+          \RecustomVerbatimEnvironment{verbatim}{Verbatim}{
+            showspaces = false,
+            showtabs = false,
+            breaksymbolleft={},
+            breaklines
+          }

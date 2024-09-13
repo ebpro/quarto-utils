@@ -9,5 +9,7 @@
 git config --global --add safe.directory /home/jovyan/work/local
 
 # quarto render $@ --no-cache --execute --profile notes
-quarto render $@ --profile notes
-quarto render $@ --profile slides 
+quarto render $@ --profile notes 
+# --to html
+quarto render $(echo $@|sed 's/--execute//'|sed 's/--no-cache//') --profile slides 
+#--to revealjs 

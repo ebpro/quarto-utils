@@ -30,37 +30,39 @@ format:
 #    multiplex: true
     transition: slide
 
-  typst:
-   toc: true
-   section-numbering: 1.1.a
-   columns: 1
-   papersize: a4
+    #  typst:
+    #   toc: true
+    #   section-numbering: 1.1.a
+    #   columns: 1
+    #   papersize: a4
     
-#  pdf:
-#    mainfont: LiberationSerif
-# monofont: LiberationMono
-#    keep-tex: true
-#    pdf-engine: lualatex
-#    pdf-engine: xelatex
-#    papersize: A4
-#    documentclass: scrartcl
-#    shift-heading-level-by: 2
-#    link-citations: true
-#    linkcolor: blue
-#    include-in-header: 
-#      text: |
-#          \usepackage{fvextra}
-#          \DefineVerbatimEnvironment{Highlighting}{Verbatim}{breaklines,commandchars=\\\{\}}
-#          \DefineVerbatimEnvironment{OutputCode}{Verbatim}{breaklines,commandchars=\\\{\}}
-#          \usepackage{fancyhdr}
-#          \pagestyle{fancy}
-#          \fancyhf{}          
-#          \fancyfoot[C]{\thepage}    
-#    include-before-body:
-#      text: |
-#        \RecustomVerbatimEnvironment{verbatim}{Verbatim}{
-#          showspaces = false,
-#          showtabs = false,
-#          breaksymbolleft={},
-#          breaklines
-#        }
+  pdf:
+    toc: true
+    number-sections: true
+    mainfont: LiberationSerif
+    monofont: LiberationMono
+    keep-tex: true
+    # pdf-engine: lualatex
+    # pdf-engine: xelatex
+    papersize: A4
+    documentclass: scrartcl
+    shift-heading-level-by: 2
+    link-citations: true
+    linkcolor: blue
+    include-in-header: 
+      text: |
+          \usepackage{fvextra}
+          \DefineVerbatimEnvironment{Highlighting}{Verbatim}{breaklines,commandchars=\\\{\}}
+          \DefineVerbatimEnvironment{OutputCode}{Verbatim}{breaklines,commandchars=\\\{\}}
+          \usepackage{fancyhdr}
+          \pagestyle{fancy}
+          \fancyhf{}          
+          \fancyfoot[C]{\thepage}    
+    include-before-body:
+      text: |
+        \RecustomVerbatimEnvironment{verbatim}{Verbatim}{
+          showspaces = false,
+          showtabs = false,
+          breaksymbolleft={},
+          breaklines
+        }

@@ -1,0 +1,5 @@
+listing:
+  sort:
+    - "filename"
+  categories: true
+  template: ./quarto-utils/gallery.ejs
