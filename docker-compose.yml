@@ -17,7 +17,7 @@ services:
         user: root
         environment:
             - CHOWN_HOME=yes
-            - NB_UID=501
+          #            - NB_UID=501
             - DOCKER_HOST=tcp://docker:2376
             - DOCKER_CERT_PATH=/certs/client
             - DOCKER_TLS_CERTDIR=/certs
@@ -28,7 +28,7 @@ services:
         volumes:
             - shared-data:/shared-data
             - ${PWD}:/home/jovyan/work/local
-            - ${HOME}/JUPYTER_WORK:/home/jovyan/work/
+            - JUPYTER_WORK:/home/jovyan/work/
             - certs-client:/certs/client:ro
         ports:
             - 8888 # JupyterLab port
@@ -44,7 +44,7 @@ services:
         user: root
         environment:
             - CHOWN_HOME=yes
-            - NB_UID=501
+            #            - NB_UID=501
             - DOCKER_HOST=tcp://docker:2376
             - DOCKER_CERT_PATH=/certs/client
             - DOCKER_TLS_CERTDIR=/certs

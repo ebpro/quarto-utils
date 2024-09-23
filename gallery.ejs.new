@@ -1,0 +1,25 @@
+```{=html}
+
+<div class="list grid" style="column-gap: 10px;">
+<% for (const item of items) { %>
+  <div class="card border-2 rounded-3 g-col-12 g-col-sm-6 g-col-md-4 mb-2">
+    <div class="card-header py-1 px-2 border-bottom border-1 bg-light">
+      <small class="card-text inline-block">
+        <a href="<%- item.path %>" class="listing-title"><%= item.title %></a>
+        <% if (item['provide_slides']) { %> <li>Présentation:
+              <a href="_slides/<%- item.path.replace('.ipynb','.html') %>">{{< fa brands html5 >}}</a> ou
+              <a href="_slides/<%- item.path.replace('.ipynb','.pdf') %>">{{< fa file-pdf >}}</a>
+            </li>
+        <% } %>
+        <% if (item['provide_notes']) { %> <li>Notes:
+              <a href="<%- item.path.replace('.ipynb','.html') %>">{{< fa brands html5 >}}</a> ou
+              <a href="<%- item.path.replace('.ipynb','.pdf') %>">{{< fa file-pdf >}}</a>
+            </li>
+        <% } %>
+      </small>
+    </div>
+  </div>
+<% } %>
+
+</div>
+```

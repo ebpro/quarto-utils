@@ -20,5 +20,4 @@ done
 
 echo "JupyterLab: $URL"
 
-echo "VScode web : $(echo $URL|sed 's/lab\/tree\/local/code-server/')&folder=/home/jovyan/work/local/"
-echo "Quarto preview: http://127.0.0.1:$(docker compose --project-name ${PWD##*/} -f quarto-utils/docker-compose.yml port notebook 4200|cut -d ':' -f 2)/"
+echo "VScode web : $(echo $URL|sed 's/lab\/tree\/local/codeserver/')&folder=/home/jovyan/work/local/"

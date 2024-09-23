@@ -1,5 +1,5 @@
 project:
-#  output-dir: _output/_slides
+  output-dir: _output/_slides
   render:
     - "*_L_*.ipynb"  
 post-render: quarto-utils/_utils/post-render.sh
@@ -23,24 +23,29 @@ format:
     code-overflow: wrap
     multiplex: true
     transition: slide
-    output-ext: slides.html
 
   beamer: 
-    output-ext: slides.pdf
+    #output-ext: slides.pdf
     navigation: horizontal
     aspectratio: 169
     classoption: ['notheorems']
     theme: Frankfurt
     # keep-tex: true
     papersize: a4
-    mainfont: LiberationSerif
-    monofont: LiberationMono
+    # mainfont: LiberationSerif
+    # monofont: LiberationMono
+    # \setmonofont[Scale=0.8]{LiberationMono} 
+    shift-heading-level-by: -1
     include-in-header: 
       text: |
           \usepackage{fvextra}
           \DefineVerbatimEnvironment{Highlighting}{Verbatim}{breaklines,commandchars=\\\{\}}         
           \setbeamertemplate{navigation symbols}{}
           \setbeamertemplate{footline}[page number]
+
+          \usepackage{fontspec} 
+          \defaultfontfeatures{Mapping=tex-text} 
+
     include-before-body:
       text: |
         \RecustomVerbatimEnvironment{verbatim}{Verbatim}{

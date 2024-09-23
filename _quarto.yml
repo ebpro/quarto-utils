@@ -15,6 +15,12 @@ language:
 #  cache: true
 #  error: true
 
+execute:
+  echo: false
+  output: false
+  error: false
+  warning: true
+
 lang: fr
 author:
     - name: "Emmanuel BRUNO"

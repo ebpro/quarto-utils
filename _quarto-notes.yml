@@ -51,6 +51,8 @@ format:
       monofont: LiberationMono
       papersize: A4
       documentclass: scrartcl
+      #    documentclass: report
+      # classoption: [twocolumn, landscape]
       shift-heading-level-by: -1
       link-citations: true
       linkcolor: blue
@@ -61,8 +63,8 @@ format:
             \DefineVerbatimEnvironment{OutputCode}{Verbatim}{breaklines,commandchars=\\\{\}}
             \usepackage{fancyhdr}
             \pagestyle{fancy}
-            \fancyhf{}
-            \fancyfoot[C]{\thepage}
+            % \fancyhf{}
+            % \fancyfoot[C]{\thepage}
       include-before-body:
         text: |
           \RecustomVerbatimEnvironment{verbatim}{Verbatim}{
