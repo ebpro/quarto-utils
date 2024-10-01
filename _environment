@@ -1,5 +1,5 @@
-DOCUMENT_VERSION="develop (5231f07) 2024-08-28 20:34:29"
-GIT_REMOTE="https://github.com/ebpro/notebook-java-java101"
+DOCUMENT_VERSION="develop (4352915) 2024-03-08 10:29:38"
+GIT_REMOTE="https://github.com/ebpro/notebook-java-after8"
 TOOLS_VERSION="OpenJDK Temurin-21.0.4+7 - Apache Maven 3.9.9"
 DOCKER_CLIENT_VERSION="27.2.0  - buildx v0.16.2 - compose v2.29.7"
 DOCKER_SERVER_VERSION="27.2.0"

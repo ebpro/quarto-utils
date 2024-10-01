@@ -1,13 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap');
+
+
 /*-- scss:defaults --*/
-$code-block-bg: #ded9ca;
-$code-block-border-color: #000000;
+
+$font-family-sans-serif: 'IBM Plex Sans';
+$font-family-monospace: 'Source Code Pro';
+
+$font-family-sans-serif: 'Manrope', sans-serif;
+$presentation-heading-font: 'IBM Plex Serif', serif;
+
+$code-block-bg: #D3D3D3;
+$code-block-border-left: 5px solid #6082B6;
+$code-annotation-higlight-bg: #C0C0C0;
+
+$presentation-font-size-root: 2em;
+$presentation-line-height: 1.5;
+
+$presentation-title-color: #0057B7;
+$presentation-heading-color: #0057B7;
+$presentation-h1-font-size: 2.2em;
+$presentation-h2-font-size: 2em;
+
 
 /*-- scss:rules --*/
 
-.slides h1 {
-  font-size : 150%;
-}  
 
-.slides h2 {
-  font-size: 140%;
-}
+

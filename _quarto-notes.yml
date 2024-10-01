@@ -16,13 +16,11 @@ format:
     code-overflow: wrap
     toc: true
     self-contained: true
-    # standalone: true
     embed-resources: true
     toc-depth: 3
     code-block-border-left: "#31BAE9"
     code-block-bg: true    
-    #    highlight-style: pygments
- #   highlight-style: github
+    highlight-style: github
  #   include-in-header:
  #     - text: |
  #         <style>
@@ -32,18 +30,7 @@ format:
  #         }
  #         </style>      
 
-    #  typst:
-    # toc: true
-    # section-numbering: 1.1.a
-    # columns: 1
-    # papersize: a4 
-
-  epub: default
-
-  #  typst:
-  #   number-sections: true
-  #  section-numbering: 1.1.a
-  #    papersize: a4
+# epub: default
 
   pdf:
       number-sections: true
@@ -51,8 +38,6 @@ format:
       monofont: LiberationMono
       papersize: A4
       documentclass: scrartcl
-      #    documentclass: report
-      # classoption: [twocolumn, landscape]
       shift-heading-level-by: -1
       link-citations: true
       linkcolor: blue

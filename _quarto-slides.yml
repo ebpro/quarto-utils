@@ -17,43 +17,42 @@ format:
     # theme: [league, custom.scss]
     # theme: [dark, quarto-utils/custom.scss]
     #theme: [white, quarto-utils/custom.scss]
-    theme: white
+    theme: [white, quarto-utils/custom.scss]
     #theme: moon
-    # highlight-style: pygments
+    highlight-style: github
     code-overflow: wrap
+    code-block-bg: true
+    #code-block-border-left: "#31BAE9"
     multiplex: true
     transition: slide
+    progress: true
+    scrollable: true
 
-  beamer: 
-    #output-ext: slides.pdf
-    navigation: horizontal
-    aspectratio: 169
-    classoption: ['notheorems']
-    theme: Frankfurt
-    # keep-tex: true
-    papersize: a4
-    # mainfont: LiberationSerif
-    # monofont: LiberationMono
-    # \setmonofont[Scale=0.8]{LiberationMono} 
-    shift-heading-level-by: -1
-    include-in-header: 
-      text: |
-          \usepackage{fvextra}
-          \DefineVerbatimEnvironment{Highlighting}{Verbatim}{breaklines,commandchars=\\\{\}}         
-          \setbeamertemplate{navigation symbols}{}
-          \setbeamertemplate{footline}[page number]
+#  beamer: 
+#    navigation: horizontal
+#    aspectratio: 169
+#    classoption: ['notheorems']
+#    theme: Frankfurt
+#    papersize: a4
+#    shift-heading-level-by: -1
+#    include-in-header: 
+#      text: |
+#          \usepackage{fvextra}
+#          \DefineVerbatimEnvironment{Highlighting}{Verbatim}{breaklines,commandchars=\\\{\}}         
+#          \setbeamertemplate{navigation symbols}{}
+#          \setbeamertemplate{footline}[page number]
+#
+#          \usepackage{fontspec} 
+#          \defaultfontfeatures{Mapping=tex-text} 
 
-          \usepackage{fontspec} 
-          \defaultfontfeatures{Mapping=tex-text} 
-
-    include-before-body:
-      text: |
-        \RecustomVerbatimEnvironment{verbatim}{Verbatim}{
-          showspaces = false,
-          showtabs = false,
-          breaksymbolleft={},
-          breaklines
-        }  
+#    include-before-body:
+#      text: |
+#        \RecustomVerbatimEnvironment{verbatim}{Verbatim}{
+#          showspaces = false,
+#          showtabs = false,
+#          breaksymbolleft={},
+#          breaklines
+#        }  
         
 revealjs-plugins:
   - verticator
