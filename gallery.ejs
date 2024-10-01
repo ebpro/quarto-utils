@@ -1,15 +1,15 @@
 <ul>
 <% for (const item of items) { %>
-  <li><a href="<%- item.path %>"><%= item.title %></a>
+  <li><%= item.title %>
     <ul>
-        <% if (item['provide_slides']) { %> <li>Présentation: 
-              <a href="_slides/<%- item.path.replace('.ipynb','.html') %>">{{< fa brands html5 >}}</a> ou 
-              <a href="_slides/<%- item.path.replace('.ipynb','.pdf') %>">{{< fa file-pdf >}}</a>
+        <% if (item['provide_slides']) { %> <li>Support de présentation: 
+              <a href="_slides/<%- item.path.replace('.ipynb','.html') %>">{{< fa brands html5 >}}</a> 
+              <!-- ou <a href="_slides/<%- item.path.replace('.ipynb','.pdf') %>">{{< fa file-pdf >}}</a> -->
             </li>
         <% } %>
-        <% if (item['provide_notes']) { %> <li>Notes: 
-              <a href="<%- item.path.replace('.ipynb','.html') %>">{{< fa brands html5 >}}</a> ou 
-              <a href="<%- item.path.replace('.ipynb','.pdf') %>">{{< fa file-pdf >}}</a>
+        <% if (item['provide_notes']) { %> <li>Notes de cours: 
+              <a href="<%- item.path.replace('.ipynb','.html') %>">{{< fa brands html5 >}}</a>
+              <!-- ou <a href="<%- item.path.replace('.ipynb','.pdf') %>">{{< fa file-pdf >}}</a> -->
             </li>
         <% } %>
      </ul>
