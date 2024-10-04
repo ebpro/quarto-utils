@@ -1,18 +1,5 @@
 <ul>
 <% for (const item of items) { %>
-  <li><%= item.title %>
-    <ul>
-        <% if (item['provide_slides']) { %> <li>Support de présentation: 
-              <a href="_slides/<%- item.path.replace('.ipynb','.html') %>">{{< fa brands html5 >}}</a> 
-              <!-- ou <a href="_slides/<%- item.path.replace('.ipynb','.pdf') %>">{{< fa file-pdf >}}</a> -->
-            </li>
-        <% } %>
-        <% if (item['provide_notes']) { %> <li>Notes de cours: 
-              <a href="<%- item.path.replace('.ipynb','.html') %>">{{< fa brands html5 >}}</a>
-              <!-- ou <a href="<%- item.path.replace('.ipynb','.pdf') %>">{{< fa file-pdf >}}</a> -->
-            </li>
-        <% } %>
-     </ul>
-  </li>
+  <li><%= item.title %><% if (item['provide_slides']) { %> (<a href="_slides/<%- item.path.replace('.ipynb','.html') %>">Présentation {{< fa brands html5 >}}</a>)<% } %> <% if (item['provide_notes']) { %>(<a href="<%- item.path.replace('.ipynb','.html') %>">Cours {{< fa brands html5 >}}</a>)<% } %></li>
 <% } %>
 </ul>
