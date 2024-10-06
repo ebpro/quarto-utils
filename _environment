@@ -1,0 +1,5 @@
+DOCUMENT_VERSION="develop (3c1843d) 2024-09-26 18:28:41"
+GIT_REMOTE="https://github.com/ebpro/notebook-dev-web"
+TOOLS_VERSION="OpenJDK Temurin-21.0.4+7 - Apache Maven 3.9.9"
+DOCKER_CLIENT_VERSION="27.3.1  - buildx v0.17.1 - compose v2.29.7"
+DOCKER_SERVER_VERSION="27.3.1"

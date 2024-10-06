@@ -12,7 +12,7 @@ until [ -n "$URL" ]; do
         --project-name ${PWD##*/} \
         -f quarto-utils/docker-compose.yml logs | \
             grep "http://127.0.0.1:" | \
-            head -n 1 | \
+            tail -n 1 | \
             sed "s/8888/$(docker compose --project-name ${PWD##*/} -f quarto-utils/docker-compose.yml port notebook 8888|cut -d ':' -f 2)/" | \
             tr -s ' ' | \
             cut -d '|' -f 2);
