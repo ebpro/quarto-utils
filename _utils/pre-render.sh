@@ -8,7 +8,8 @@ DOCKER_CLIENT_VERSION="$(docker version --format '{{.Client.Version}}') $(docker
 
 BRANCH=$(git branch --show-current)
 HASH=$(git rev-parse --short HEAD)
-DATE=$(git log -1 --format="%at" | xargs -I{} date -d @{} +%Y-%m-%d\ %H:%M:%S)
+#DATE=$(git log -1 --format="%at" | xargs -I{} date -d @{} +%Y-%m-%d\ %H:%M:%S)
+DATE=$(git log -1 --date=format:"%Y/%m/%d %T" --format="%ad")
 DOCUMENT_VERSION="$BRANCH ($HASH) $DATE"
 GIT_REMOTE="$(git config --get remote.origin.url|cut -d '@' -f 2|sed 's/github.com:/https:\/\/github.com\//'|sed 's/\.git$//')"
 (cat <<EOF

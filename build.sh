@@ -1,14 +1,14 @@
 #!/usr/bin/env bash
 
+TOP_ARGS="$*"
 
-#ARGS=$1 \
-#    docker compose --project-name ${PWD##*/}-builder \
-#        -f quarto-utils/docker-compose.yml \
-#        down -v \
-#        notebook-builder
-
-ARGS=$1 \
-    docker compose --project-name ${PWD##*/}-builder \
+function manage_docker() {
+    local action=$1
+    ARGS=$TOP_ARGS docker compose --project-name ${PWD##*/}-builder \
         -f quarto-utils/docker-compose.yml \
-        up \
-        notebook-builder
+        $action 
+}
+
+manage_docker down -v
+manage_docker "up notebook-builder"
+manage_docker down -v

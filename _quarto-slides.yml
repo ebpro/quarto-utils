@@ -1,7 +1,8 @@
 project:
   output-dir: _output/_slides
   render:
-    - "*_L_*.ipynb"  
+    - "*_L_*.ipynb"
+    - "index.qmd" 
 post-render: quarto-utils/_utils/post-render.sh
 
 format:
