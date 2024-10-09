@@ -4,7 +4,7 @@ project:
     - "index.qmd" 
     - "*_L_*.ipynb"  
     - "*_L_*.qmd"  
-post-render: quarto-utils/_utils/post-render.sh
+  post-render: quarto-utils/_utils/post-render.sh
 
 format:
 
