@@ -4,6 +4,7 @@ project:
     - "*.qmd"
     - "*.ipynb"
     - "!*_L-slides_*.ipynb"
+    - "!HIDDEN"
 
 notebook-links: false
 
