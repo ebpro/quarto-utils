@@ -2,61 +2,52 @@ project:
   output-dir: _output/_slides
   render:
     - "index.qmd" 
-    - "*_L_*.ipynb"  
-    - "*_L_*.qmd"  
+    - "*_L_*.ipynb"
+    - "*_L_*.qmd"
+    - "*_P_*.qmd"
+    - "*_P_*.ipynb"
     - "!HIDDEN"
-
-post-render: quarto-utils/_utils/post-render.sh
+  post-render: ./quarto-utils/_utils/post-render.sh
 
 format:
 
   revealjs:
-    # chalkboard: true
-    footer: E. Bruno
+    # Presentation settings
+    theme: [white, quarto-utils/custom.scss]
+    highlight-style: github
+    footer: "E. Bruno - {{< meta title >}}"
     slide-level: 3
     navigation-mode: vertical
     slide-number: c/t
-    smaller: true
-    embed-resources: true
-    # theme: [league, custom.scss]
-    # theme: [dark, quarto-utils/custom.scss]
-    #theme: [white, quarto-utils/custom.scss]
-    theme: [white, quarto-utils/custom.scss]
-    #theme: moon
-    highlight-style: github
+
+    # Code display
     code-overflow: wrap
     code-block-bg: true
-    #code-block-border-left: "#31BAE9"
+    code-copy: true
+    code-line-numbers: true
+
+    # Features
     multiplex: true
     transition: slide
     progress: true
     scrollable: true
+    preview-links: true
 
-#  beamer: 
-#    navigation: horizontal
-#    aspectratio: 169
-#    classoption: ['notheorems']
-#    theme: Frankfurt
-#    papersize: a4
-#    shift-heading-level-by: -1
-#    include-in-header: 
-#      text: |
-#          \usepackage{fvextra}
-#          \DefineVerbatimEnvironment{Highlighting}{Verbatim}{breaklines,commandchars=\\\{\}}         
-#          \setbeamertemplate{navigation symbols}{}
-#          \setbeamertemplate{footline}[page number]
-#
-#          \usepackage{fontspec} 
-#          \defaultfontfeatures{Mapping=tex-text} 
+    # Controls
+    controls: true
+    controls-layout: bottom-right
 
-#    include-before-body:
-#      text: |
-#        \RecustomVerbatimEnvironment{verbatim}{Verbatim}{
-#          showspaces = false,
-#          showtabs = false,
-#          breaksymbolleft={},
-#          breaklines
-#        }  
-        
+    # Plugins
+    chalkboard: 
+      enabled: true
+      buttons: true
+    
+    # PDF Export
+    pdf-separate-fragments: true
+    
+    # Performance
+    # embed-resources: true
+    smaller: true
+
 revealjs-plugins:
   - verticator

@@ -65,20 +65,6 @@ services:
         networks:
           - notebooknet
 
-  db:
-    image: postgres:16-alpine
-    # image: postgis/postgis:16-3.4
-    restart: always
-    environment:
-      - POSTGRES_USER=${DB_USERNAME:-dba}
-      - POSTGRES_PASSWORD=${DB_PASSWORD:-secretsecret}
-      - POSTGRES_DB=${DB_NAME:-notebook-db}
-    networks:
-      - notebooknet
-    volumes:
-      - shared-data:/shared-data
-      - dbhost-data:/var/lib/postgresql
-
 volumes:
   certs-ca:
   certs-client:

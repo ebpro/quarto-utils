@@ -1,33 +1,66 @@
-@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap');
-
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap');
-
-
 /*-- scss:defaults --*/
+// Colors
+$primary-color: #0057B7;
+$secondary-color: #6082B6;
+$accent-color: #31BAE9;
+$background-color: #FFFFFF;
+$text-color: #2C3E50;
+$link-color: $primary-color;
 
-$font-family-sans-serif: 'IBM Plex Sans';
-$font-family-monospace: 'Source Code Pro';
-
+// Typography
 $font-family-sans-serif: 'Manrope', sans-serif;
+$font-family-monospace: 'Source Code Pro', monospace;
 $presentation-heading-font: 'IBM Plex Serif', serif;
-
-$code-block-bg: #D3D3D3;
-$code-block-border-left: 5px solid #6082B6;
-$code-annotation-higlight-bg: #C0C0C0;
-
 $presentation-font-size-root: 2em;
-//$presentation-line-height: 1.5;
+$presentation-line-height: 1.5;
 
-$presentation-title-color: #0057B7;
-$presentation-heading-color: #0057B7;
-$presentation-h1-font-size: 2em;
-$presentation-h2-font-size: 1.8em;
+// Presentation elements
+$presentation-title-color: $primary-color;
+$presentation-heading-color: $primary-color;
+$presentation-h1-font-size: 2.5em;
+$presentation-h2-font-size: 2em;
+$presentation-h3-font-size: 1.5em;
+$presentation-block-margin: 1.5rem;
 
-$code-block-font-size: 1em;
-$code-font-size: 1em;
+// Code blocks
+$code-block-bg: lighten($primary-color, 55%);
+$code-block-border-left: 5px solid $accent-color;
+$code-block-border-radius: 4px;
+$code-block-font-size: 0.9em;
+$code-font-size: 0.9em;
+$code-color: darken($text-color, 10%);
 
 /*-- scss:rules --*/
+.reveal {
+  .slide-number {
+    font-size: 0.8em;
+    background-color: rgba($primary-color, 0.1);
+    padding: 0.2em 0.5em;
+    border-radius: 3px;
+  }
 
+  .sourceCode {
+    font-family: $font-family-monospace;
+  }
 
+  blockquote {
+    border-left: 4px solid $accent-color;
+    padding-left: 1em;
+    font-style: italic;
+  }
 
+  table {
+    border-collapse: collapse;
+    th, td {
+      border: 1px solid lighten($primary-color, 40%);
+      padding: 0.5em;
+    }
+    th {
+      background-color: rgba($primary-color, 0.1);
+    }
+  }
+
+  .controls {
+    color: $primary-color;
+  }
+}

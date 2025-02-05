@@ -10,16 +10,14 @@ project:
 language: 
   title-block-author-single: "Auteur"
 
-#execute:
-#  freeze: auto  # re-render only when source changes
-#  cache: true
-#  error: true
-
 execute:
   echo: false
   output: false
   error: false
   warning: true
+  freeze: auto  # re-render only when source changes
+  cache: true
+  timeout: 60
 
 lang: fr
 author:
@@ -35,10 +33,6 @@ affiliations:
 date: last-modified
 date-format: iso
 license: "CC BY-NC"
-
-#bibliography: references.bib
-#suppress-bibliography: false
-# citeproc: true
 
 profile:
   default: notes

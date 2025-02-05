@@ -31,6 +31,8 @@ date: ""
 EOF
 ) > ./quarto-utils/_version.qmd
 
+echo "" > ./quarto-utils/_version.qmd
+
 
 (cat <<EOF
 +                #+                                  #+
