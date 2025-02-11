@@ -4,8 +4,6 @@ project:
     - "index.qmd" 
     - "*_L_*.ipynb"
     - "*_L_*.qmd"
-    - "*_P_*.qmd"
-    - "*_P_*.ipynb"
     - "!HIDDEN"
   post-render: ./quarto-utils/_utils/post-render.sh
 

@@ -12,12 +12,15 @@ services:
       - certs-client:/certs/client
     networks:
       - notebooknet
-
+    healthcheck:
+      test: ["CMD", "docker", "info"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
   notebook:
         user: root
         environment:
             - CHOWN_HOME=yes
-          #            - NB_UID=501
             - DOCKER_HOST=tcp://docker:2376
             - DOCKER_CERT_PATH=/certs/client
             - DOCKER_TLS_CERTDIR=/certs
@@ -25,14 +28,17 @@ services:
             - DB_USERNAME=${DB_USERNAME:-dba}
             - DB_PASSWORD=${DB_PASSWORD:-secretsecret}
             - DB_URL=${DB_URL:-jdbc:postgresql://db/notebook-db}
+            - GITHUBORG=${GITHUBORG}
+            - GITHUB_PAT=${GITHUB_PAT}
+            - GITHUBACTOR=${GITHUBACTOR}
+            - GITHUBTOKEN=${GITHUBTOKEN}
+            - DOCKERHUB_USERNAME=${DOCKERHUB_USERNAME}
+            - DOCKERHUB_TOKEN=${DOCKERHUB_TOKEN}            
         volumes:
             - shared-data:/shared-data
             - ${PWD}:/home/jovyan/work/local
             - JUPYTER_WORK:/home/jovyan/work/
             - certs-client:/certs/client:ro
-        ports:
-            - 8888 # JupyterLab port
-            - 4200 # quarto render port
         image: ${IMAGE_REPO}/${IMAGE_NAME}:${IMAGE_TAG}
         depends_on:
             - docker
@@ -44,7 +50,6 @@ services:
         user: root
         environment:
             - CHOWN_HOME=yes
-            #            - NB_UID=501
             - DOCKER_HOST=tcp://docker:2376
             - DOCKER_CERT_PATH=/certs/client
             - DOCKER_TLS_CERTDIR=/certs
@@ -52,6 +57,12 @@ services:
             - DB_USERNAME=${DB_USERNAME:-dba}
             - DB_PASSWORD=${DB_PASSWORD:-secretsecret}
             - DB_URL=${DB_URL:-jdbc:postgresql://db/notebook-db}
+            - GITHUBORG=${GITHUBORG}
+            - GITHUB_PAT=${GITHUB_PAT}
+            - GITHUBACTOR=${GITHUBACTOR}
+            - GITHUBTOKEN=${GITHUBTOKEN}
+            - DOCKERHUB_USERNAME=${DOCKERHUB_USERNAME}
+            - DOCKERHUB_TOKEN=${DOCKERHUB_TOKEN}
         volumes:
             - shared-data:/shared-data
             - ${PWD}:/home/jovyan/work/local

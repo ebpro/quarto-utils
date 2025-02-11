@@ -1,0 +1,6 @@
+```{zsh}
+#| output: false
+#| echo: false
+#| vscode: {languageId: zsh}
+docker system prune --all --force
+```

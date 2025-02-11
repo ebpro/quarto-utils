@@ -6,12 +6,14 @@ project:
     - "*.qmd" 
     - "!*_L-slides_*.ipynb"
     - "!HIDDEN"
+  resources:
+    resources
 
 notebook-links: false
 
 theme:
-    light: flatly
-    dark: darkly
+  light: flatly
+  dark: darkly
 
 format:    
   html:    
@@ -24,10 +26,12 @@ format:
     code-block-border-left: "#31BAE9"
     code-block-bg: true    
     highlight-style: github
-    number-sections: true
+    number-sections: false
     anchor-sections: true
     footnotes-hover: true
-    search: true    
+    search: true   
+    smooth-scroll: true
+    section-divs: true
     include-in-header:
       - text: |
           <style>
@@ -59,3 +63,7 @@ website:
   sidebar:
     style: docked
     contents: auto
+  comments: 
+    utterances:
+      repo: ebpro/utterances
+    

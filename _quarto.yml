@@ -2,8 +2,8 @@ project:
   execute-dir: project
   output-dir: _output
   preview:    
-    host: 0.0.0.0
-    port: 4200
+    # host: 0.0.0.0
+    # port: 4200
     browser: false
   pre-render: ./quarto-utils/_utils/pre-render.sh 
 
@@ -55,3 +55,5 @@ filters:
    - code-fullscreen
    - roughnotation
    - code-visibility
+   - auto-dark
+   - github
