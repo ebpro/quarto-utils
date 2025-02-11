@@ -1,0 +1,10 @@
+```{java}
+//| echo: false
+//| output: false
+String script="""
+docker system prune --all --force
+""";
+
+IJava.getKernelInstance().getMagics().applyCellMagic("shell",List.of(""),script);
+"";
+```

@@ -1,0 +1,10 @@
+```{java}
+//| echo: false
+//| output: true
+String script="""
+./quarto-utils/_tools_Docker.sh
+""";
+
+IJava.getKernelInstance().getMagics().applyCellMagic("shell",List.of(""),script);
+"";
+```

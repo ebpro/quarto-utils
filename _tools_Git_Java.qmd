@@ -1,0 +1,11 @@
+```{java}
+//| echo: false
+//| output: true
+String script="""
+./quarto-utils/_tools_Git.sh
+""";
+
+IJava.getKernelInstance().getMagics().applyCellMagic("shell",List.of(""),script);
+"";
+```
+
