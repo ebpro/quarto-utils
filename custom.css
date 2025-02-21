@@ -1,0 +1,68 @@
+/* Light theme */
+:root {
+    --cmd-border: #186b40;
+    --cmd-label: #656d76;
+    --output-bg: #f6f8fa;
+    --output-color: #1f2328;
+    --output-border: #0969da;
+    --radius: 6px;
+}
+
+/* Dark theme - darker backgrounds */
+[data-theme="dark"] {
+    --cmd-border: #30363d;   /* Subtle border */
+    --cmd-label: #8b949e;    /* Subdued label color */
+    --output-bg: #1c2128;    /* Darker output background */
+    --output-color: #e6edf3; /* Brighter output text */
+    --output-border: #539bf5;/* Keeping the accent color */
+}
+
+/* Command source block */
+pre.sourceCode.zsh {
+    padding: 1em;
+    border-radius: var(--radius);
+    margin-bottom: 0;
+    border: 1px solid var(--cmd-border);
+    border-left: 4px solid var(--cmd-border);
+    position: relative;
+    font-family: 'SF Mono', Monaco, Consolas, monospace;
+}
+
+/* Command label */
+.sourceCode.zsh::before {
+    content: "input";
+    position: absolute;
+    top: -18px;
+    left: 0;
+    font-size: 0.8em;
+    color: var(--cmd-label);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 500;
+}
+
+/* Output block styling */
+.cell-output-display pre,
+.cell-output-stdout pre {
+    border: 1px solid var(--output-border);
+    border-left: 4px solid var(--output-border);
+    margin-top: 0;
+    padding: 1em;
+    border-radius: var(--radius);
+    position: relative;
+    font-family: 'SF Mono', Monaco, Consolas, monospace;
+}
+
+/* Output label */
+.cell-output-display pre::before,
+.cell-output-stdout pre::before {
+    content: "output";
+    position: absolute;
+    top: 4px;
+    right: 8px;
+    font-size: 0.8em;
+    color: var(--cmd-label);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 500;
+}

@@ -57,3 +57,13 @@ filters:
    - code-visibility
    - auto-dark
    - github
+
+format:
+  html: 
+    css: quarto-utils/custom.css 
+    include-in-header:
+      text: |
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">    
+
+website: 
+  site-url: "https://bruno.univ-tln.fr"

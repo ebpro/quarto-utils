@@ -1,10 +1,7 @@
 ```{java}
 //| echo: false
-//| output: true
-String script="""
+//| output: asis
+%%shell
 ./quarto-utils/_tools_Docker.sh
-""";
-
-IJava.getKernelInstance().getMagics().applyCellMagic("shell",List.of(""),script);
-"";
 ```
+
