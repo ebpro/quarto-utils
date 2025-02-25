@@ -1,9 +1,3 @@
-#listing:
-#  sort:
-#    - "filename"
-#  categories: true
-#  template: ./quarto-utils/gallery.ejs
-
 listing:
   # Content organization
   contents:
@@ -42,10 +36,10 @@ listing:
   template: ./quarto-utils/gallery.ejs
   
   # Feed generation
-  feed: 
-    title: "Docker Training Materials"
-    description: "Cours et exercices sur Docker et la conteneurisation"
-    categories:
-      - docker
-      - containers
-      - devops
+  #feed: 
+  #  title: "Docker Training Materials"
+  #  description: "Cours et exercices sur Docker et la conteneurisation"
+  #  categories:
+  #    - docker
+  #    - containers
+  #    - devops

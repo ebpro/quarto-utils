@@ -1,13 +1,6 @@
 project:
   type: website
-  render:
-    - "index.qmd" 
-    - "*.ipynb" 
-    - "*.qmd" 
-    - "!*_L-slides_*.ipynb"
-    - "!HIDDEN"
-  resources:
-    resources
+  output-dir: _output/_notes
 
 notebook-links: false
 
@@ -20,7 +13,7 @@ format:
     code-overflow: wrap
     toc: true
     toc-depth: 3
-    toc-location: left
+    toc-location: right
     self-contained: true
     embed-resources: true
     code-block-border-left: "#31BAE9"

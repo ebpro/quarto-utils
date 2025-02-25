@@ -1,10 +1,4 @@
 project:
-  output-dir: _output/_slides
-  render:
-    - "index.qmd" 
-    - "*_L_*.ipynb"
-    - "*_L_*.qmd"
-    - "!HIDDEN"
   post-render: ./quarto-utils/_utils/post-render.sh
 
 format:

@@ -118,9 +118,9 @@ if [[ "$SKIP_SLIDES" == false ]]; then
     # Remove specific arguments for slides
     SLIDE_ARGS=()
     for arg in "${QUARTO_ARGS[@]}"; do
-        if [[ "$arg" != "--execute" && "$arg" != "--no-cache" ]]; then
+        #if [[ "$arg" != "--execute" && "$arg" != "--no-cache" ]]; then
             SLIDE_ARGS+=("$arg")
-        fi
+        #fi
     done
     build_documents "slides" "${SLIDE_ARGS[@]}"
 fi

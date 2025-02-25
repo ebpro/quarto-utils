@@ -1,12 +1,16 @@
 project:
   execute-dir: project
-  output-dir: _output
   preview:    
-    # host: 0.0.0.0
-    # port: 4200
     browser: false
   pre-render: ./quarto-utils/_utils/pre-render.sh 
-
+  resources:
+    resources
+  render:
+    - "index.qmd" 
+    - "*.ipynb" 
+    - "*.qmd" 
+    - "!HIDDEN"
+    
 language: 
   title-block-author-single: "Auteur"
 
@@ -15,7 +19,7 @@ execute:
   output: false
   error: false
   warning: true
-  freeze: auto  # re-render only when source changes
+  #freeze: auto  # re-render only when source changes
   cache: true
   timeout: 60
 
