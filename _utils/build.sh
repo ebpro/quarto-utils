@@ -87,16 +87,30 @@ warn() {
 # Build function
 build_documents() {
     local profile=$1
-    local args=("${@:2}")
+    shift
+    local args=("$@")
     
     log "Building documents for profile: ${profile}"
-    vlog "Using arguments: ${args[*]}"
     
-    if [[ "$DRY_RUN" == true ]]; then
-        echo "Would run: quarto render ${args[*]} --profile ${profile}"
+    if [[ ${#args[@]} -gt 0 ]]; then
+        vlog "Using arguments: ${args[*]}"
+        
+        if [[ "$DRY_RUN" == true ]]; then
+            echo "Would run: quarto render ${args[*]} --profile ${profile}"
+        else
+            if ! quarto render "${args[@]}" --profile "${profile}"; then
+                error "Failed to build documents for profile: ${profile}"
+            fi
+        fi
     else
-        if ! quarto render "${args[@]}" --profile "${profile}"; then
-            error "Failed to build documents for profile: ${profile}"
+        vlog "No additional arguments provided"
+        
+        if [[ "$DRY_RUN" == true ]]; then
+            echo "Would run: quarto render --profile ${profile}"
+        else
+            if ! quarto render --profile "${profile}"; then
+                error "Failed to build documents for profile: ${profile}"
+            fi
         fi
     fi
 }
@@ -110,19 +124,27 @@ git config --global --add safe.directory /home/jovyan/work/local || warn "Could 
 
 # Build notes
 if [[ "$SKIP_NOTES" == false ]]; then
-    build_documents "notes" "${QUARTO_ARGS[@]}"
+    if [[ ${#QUARTO_ARGS[@]} -gt 0 ]]; then
+        build_documents "notes" "${QUARTO_ARGS[@]}"
+    else
+        build_documents "notes"
+    fi
 fi
 
 # Build slides
 if [[ "$SKIP_SLIDES" == false ]]; then
-    # Remove specific arguments for slides
+    # Remove specific arguments for slides if needed
     SLIDE_ARGS=()
-    for arg in "${QUARTO_ARGS[@]}"; do
-        #if [[ "$arg" != "--execute" && "$arg" != "--no-cache" ]]; then
-            SLIDE_ARGS+=("$arg")
-        #fi
-    done
-    build_documents "slides" "${SLIDE_ARGS[@]}"
+    if [[ ${#QUARTO_ARGS[@]} -gt 0 ]]; then
+        for arg in "${QUARTO_ARGS[@]}"; do
+            #if [[ "$arg" != "--execute" && "$arg" != "--no-cache" ]]; then
+                SLIDE_ARGS+=("$arg")
+            #fi
+        done
+        build_documents "slides" "${SLIDE_ARGS[@]}"
+    else
+        build_documents "slides"
+    fi
 fi
 
 log "Build completed successfully! 🎉"
